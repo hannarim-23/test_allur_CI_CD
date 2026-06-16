@@ -1,0 +1,18 @@
+{
+  "name": "test_allur_ci_cd",
+  "version": "1.0.0",
+  "description": "test + CI/CD + Allure",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hannarim-23/test_allur_CI_CD"
+  },
+  "license": "ISC",
+  "author": "hannarim-23",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {},
+  "devDependencies": {
+    "@playwright/test": "^1.61.0",
+    "@types/node": "^25.9.3"
+  }
+}
