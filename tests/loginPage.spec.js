@@ -24,7 +24,10 @@ test.describe('Login page test', () => {
   });
 
   test('login with valid date', async ({ page }) => {
-    await loginPage.login(Users.standard, PASSWORD);
+    //await loginPage.login(Users.standard, PASSWORD);
+    await test.step('вводим логин и пароль', async()=>{// это аалогия для касивого выврда в аллюр
+      await loginPage.login(Users.standard, PASSWORD);
+    });
     await loginPage.expectLoginSuccess();
   });
 
