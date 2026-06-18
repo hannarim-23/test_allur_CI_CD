@@ -34,7 +34,7 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // Базовый URL для всех тестов
-    baseURL: 'https://www.saucedemo.com',
+    baseURL: 'https://www.saucedemo.com/',
 
     // Снимать скриншот при падении
     screenshot: 'only-on-failure',
@@ -44,6 +44,9 @@ export default defineConfig({
 
     // Таймаут для действий (кликов, ввода)
     actionTimeout: 5000,
+
+    // ✅ Настройка для getByTestId
+    testIdAttribute: 'data-test',  // По умолчанию и так 'data-test'
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     // Сохраняет трейс только при повторном запуске упавшего теста
