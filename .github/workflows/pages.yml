@@ -1,5 +1,6 @@
 # .github/workflows/pages.yml
 #https://hannarim-23.github.io/test_allur_CI_CD/
+
 name: Deploy Allure Report
 
 on:
@@ -32,5 +33,3 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-
-        
