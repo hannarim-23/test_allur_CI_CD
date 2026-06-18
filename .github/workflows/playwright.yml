@@ -26,7 +26,7 @@ jobs:
         run: npm ci
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium firefox
 
       - name: Run Playwright tests
         run: npx playwright test
@@ -37,7 +37,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y allure
-          
+
       - name: Generate Allure report
         if: always()
         run: npx allure generate allure-results -o allure-report --clean
