@@ -16,31 +16,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-#      - name: Setup Node.js
-#        uses: actions/setup-node@v4
-#        with:
-#          node-version: 22
-#          cache: 'npm'
-
-#      - name: Install dependencies
-#        run: npm ci
-
-#      - name: Install Playwright browsers
-#        run: npx playwright install --with-deps chromium firefox
-
-#      - name: Run Playwright tests
-#        run: npx playwright test
-
-#добавили вместо пред.закоменченного
-        - name: Run Playwright tests via Docker
+      - name: Run Playwright tests via Docker
         run: |
           docker pull anya94qwe/my-playwright-tests:latest
           docker run --rm -v $(pwd)/allure-results:/app/allure-results anya94qwe/my-playwright-tests:latest
 
-      # ========== ALLURE ==========
-      # ✅ Устанавливаем Allure (ОБЯЗАТЕЛЬНО!)
       - name: Install Allure
-        #run: npm install -g allure-commandline
         run: |
           sudo apt-get update
           sudo apt-get install -y allure
@@ -55,10 +36,7 @@ jobs:
         with:
           name: allure-report
           path: allure-report/
-          retention-days:
-            30
-
-      # ========== END ALLURE ==========
+          retention-days: 30
 
       - name: Upload Playwright report
         if: always()
@@ -74,10 +52,8 @@ jobs:
         with:
           name: test-results
           path: test-results/
-          retention-days:
-            30
+          retention-days: 30
 
-      # ========== НОВЫЙ JOB ДЛЯ DEPLOY ==========
   deploy:
     needs: test
     if: always() && needs.test.result == 'success'
