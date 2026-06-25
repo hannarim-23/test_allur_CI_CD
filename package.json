@@ -16,11 +16,11 @@
     "test:debug": "npx playwright test --debug",
     "test:ci": "npx playwright test --workers=1",
     "report": "npx playwright show-report",
-
+    
     "allure:generate": "npx allure generate allure-results -o allure-report --clean",
     "allure:open": "npx allure open allure-report",
     "allure:test": "npm run test && npm run allure:generate && npm run allure:open",
-     "allure:clean": "rm -rf allure-results allure-report"
+    "allure:clean": "if exist allure-results rmdir /s /q allure-results && if exist allure-report rmdir /s /q allure-report"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.0",
