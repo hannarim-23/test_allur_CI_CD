@@ -28,8 +28,8 @@ jobs:
 #      - name: Install Playwright browsers
 #        run: npx playwright install --with-deps chromium firefox
 
-      - name: Run Playwright tests
-        run: npx playwright test
+#      - name: Run Playwright tests
+#        run: npx playwright test
 
 #добавили вместо пред.закоменченного
         - name: Run Playwright tests via Docker
