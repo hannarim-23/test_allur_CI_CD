@@ -21,10 +21,8 @@ jobs:
           docker pull anya94qwe/my-playwright-tests:latest
           docker run --rm -v $(pwd)/allure-results:/app/allure-results anya94qwe/my-playwright-tests:latest
 
-      - name: Install Allure
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y allure
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline
 
       - name: Generate Allure report
         if: always()
